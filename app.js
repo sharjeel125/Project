@@ -27,6 +27,7 @@ app.use("/client", Client);
 app.get("/",(req,res)=> res.send("Hello Thats my Server"))
 
 // app.use("*", express.static(path.join(__dirname, "public/dist/kyls")));
+// app.use('/', express.static(path.join(__dirname, 'web/build')))
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
