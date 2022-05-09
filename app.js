@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, "public/dist/kyls")));
 
 app.use("/client", Client);
+app.get("/",(req,res)=> res.send("Hello Thats my Server"))
 
 // app.use("*", express.static(path.join(__dirname, "public/dist/kyls")));
 
