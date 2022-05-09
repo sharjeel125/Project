@@ -1,8 +1,11 @@
+const { firebaseFileUpload } = require("../helpers/index.js");
 const Clients_Informations = require("../Models/Client.model.js");
 
 // Create and Save a new Client Record
+
 exports.create = (req, res) => {
   // Validate request
+  // joi validator tanu suggest
   if (
     !req.body.ClientName ||
     !req.body.ClientId ||
@@ -47,6 +50,21 @@ exports.create = (req, res) => {
         }
       }
     );
+  }
+};
+
+exports.gettingImage = async (req, res) => {
+  try {
+    console.log(req.file);
+    const imageUrl = await firebaseFileUpload(
+      "/sharjeel images",
+      req.file.filename,
+      req.file.path
+    );
+    return res.status(200).send({ status: 200, file: req.file, imageUrl });
+  } catch (e) {
+    console.log(e);
+    return res.status(400).send({ status: 400, message: e.messsage });
   }
 };
 
