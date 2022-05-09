@@ -5,11 +5,11 @@ const client = require("../Controllers/Client.controller.js");
 
 
 	// Create a new Client Record
-
+  
   router.post("/create", client.create);
 
   	// Retrieve all Client Record
-  router.get("/", client.findAll);
+  router.get("/allclients", client.findAll);
   router.get("/:clients/:date", client.findAllbyDate);
 
   
